@@ -1,26 +1,38 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
+ * Design tokens for the Trailhead app.
+ *
+ * Every colour that changes between light and dark mode lives in `Colors`,
+ * so a screen can pull the right token with the `useTheme()` hook.
  */
-
-import '@/global.css';
 
 import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: '#11181C',
+    background: '#F6F7F5',
+    backgroundElement: '#FFFFFF',
+    backgroundSelected: '#E4EFE8',
+    textSecondary: '#5F6B72',
+    border: '#E1E6E2',
+    primary: '#1F6F4A',
+    primarySoft: '#E3F0E8',
+    accent: '#B4620F',
+    accentSoft: '#FBEEDC',
+    danger: '#B3261E',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: '#F1F4F2',
+    background: '#0E1113',
+    backgroundElement: '#171B1E',
+    backgroundSelected: '#1D2A22',
+    textSecondary: '#98A4AD',
+    border: '#242A2F',
+    primary: '#4CAF7D',
+    primarySoft: '#16281E',
+    accent: '#E9A44C',
+    accentSoft: '#2B2013',
+    danger: '#F2B8B5',
   },
 } as const;
 
@@ -44,10 +56,10 @@ export const Fonts = Platform.select({
     mono: 'monospace',
   },
   web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
+    sans: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+    serif: 'Georgia, "Times New Roman", serif',
+    rounded: '"SF Pro Rounded", "Hiragino Maru Gothic ProN", Meiryo, "MS PGothic", sans-serif',
+    mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace',
   },
 });
 
@@ -59,6 +71,15 @@ export const Spacing = {
   four: 24,
   five: 32,
   six: 64,
+} as const;
+
+/** Corner radius scale used by cards, chips and sheets. */
+export const Radius = {
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  pill: 999,
 } as const;
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
